@@ -1,1 +1,0 @@
-Number of pairs of words with the symbol '-': 0
