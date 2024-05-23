@@ -3,7 +3,7 @@
 #include <wctype.h>
 
 int main() {
-    wchar_t text[256];  // Buffer to hold the input text
+    wchar_t text[256];
     int count = 0;
 
     wprintf(L"Please enter a line of text: ");
@@ -12,15 +12,13 @@ int main() {
         return 1;
     }
 
-    size_t length = wcslen(text);  // Use size_t for length
+    size_t length = wcslen(text);
 
-    for (size_t i = 1; i < length - 1; i++) {  // Use size_t for the loop index
+    for (size_t i = 1; i < length - 1; i++) {
         if (text[i] == L'-' && iswalpha(text[i - 1]) && iswalpha(text[i + 1])) {
             count++;
         }
     }
-
-    // Open the output file for writing
     FILE *file = fopen("output.txt", "w");
     if (file) {
         fwprintf(file, L"Number of pairs of words with the symbol '-': %d\n", count);
